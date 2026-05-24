@@ -2,8 +2,8 @@ package enums;
 
 public enum TrainingLevel {
     BEGINNER(1, "Beginner"),
-    INTERMEDIATE(2, "rgetger"),
-    ADVANCED(3, "advanced"),
+    INTERMEDIATE(2, "Intermediate"),
+    ADVANCED(3, "Advanced"),
     PROFESSIONAL(4, "Professional");
 
     private final int code;
@@ -22,6 +22,10 @@ public enum TrainingLevel {
         return displayName;
     }
 
-    
-
+    public static TrainingLevel fromCode(int code) {
+        for (TrainingLevel t : values()) {
+            if (t.code == code) return t;
+        }
+        throw new IllegalArgumentException("Invalid TrainingLevel: " + code);
+    }
 }
